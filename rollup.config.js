@@ -4,6 +4,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 import css from 'rollup-plugin-css-only';
+import tailwindcss from './rollup-plugin-tailwind/index';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -46,6 +47,7 @@ export default {
 		// we'll extract any component CSS out into
 		// a separate file - better for performance
 		css({ output: 'bundle.css' }),
+		tailwindcss(),
 
 		// If you have external dependencies installed from
 		// npm, you'll most likely need these plugins. In
@@ -64,7 +66,7 @@ export default {
 
 		// Watch the `public` directory and refresh the
 		// browser on changes when not in production
-		!production && livereload('build'),
+		// !production && livereload('build'),
 
 		// If we're building for production (npm run build
 		// instead of npm run dev), minify
