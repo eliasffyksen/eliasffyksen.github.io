@@ -1,0 +1,6 @@
+<script>
+    const path = location.pathname + location.search;
+    const pathEncoded = encodeURIComponent(path);
+    const redirect = `/?p=${pathEncoded}`;
+    window.location.replace(redirect);
+</script>
